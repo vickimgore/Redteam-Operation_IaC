@@ -12,8 +12,8 @@
     group:  root
     mode: 0600
 
-- name: Restart sshd
-  become: yes
-  systemd:
-    state: restarted
-    name: sshd
+#- name: Restart sshd
+#  become: yes
+#  systemd:
+#    state: restarted
+#    name: sshd

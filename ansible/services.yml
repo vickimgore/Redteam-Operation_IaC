@@ -1,0 +1,6 @@
+---
+- name: Services Role
+  hosts: cc
+  tasks:
+    - import_role:
+        name: services
