@@ -1,0 +1,6 @@
+---
+- name: Base Setup
+  hosts: cc
+  tasks:
+    - import_role:
+        name: base_setup

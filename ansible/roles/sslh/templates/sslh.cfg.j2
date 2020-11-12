@@ -1,0 +1,24 @@
+verbose: true;
+foreground: true;
+inetd: false;
+numeric: false;
+transparent: false;
+timeout: 2;
+pidfile: "/var/run/sslh.pid";
+
+syslog_facility: "auth"; 
+
+listen:
+(
+    { host: "{{ ansible_host }}"; port: "443"; }
+);
+
+protocols:
+(
+# SSH
+     { name: "ssh"; service: "ssh"; host: "localhost"; port: "22"; keepalive: true; fork: true; },
+# OpenVPN
+     { name: "regex"; host: "localhost"; port: "1194"; regex_patterns: [ "^\x00[\x0D-\xFF]$", "^\x00[\x0D-\xFF]\x38" ]; }
+);
+
+on-timeout: "timeout";

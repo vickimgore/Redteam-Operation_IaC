@@ -1,0 +1,18 @@
+- name: Clone spiderfoot
+  become: yes
+  git:
+    repo: https://github.com/smicallef/spiderfoot.git
+    dest: "{{ workdir }}/spiderfoot"
+    clone: yes
+
+- name: Clone koadic
+  become: yes
+  git:
+    repo: https://github.com/zerosum0x0/koadic.git
+    dest: "{{ workdir }}/koadic"
+    clone: yes
+
+- name: Copy docker-compose.yml 
+  copy:
+    src: docker-compose.yml
+    dest: /opt/docker

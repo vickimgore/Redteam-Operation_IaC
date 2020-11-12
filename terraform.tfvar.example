@@ -1,0 +1,14 @@
+# For Instance
+image = "linode/centos7"
+label = "0x7e4"
+region = "us-east"
+type = "g6-nanode-1"
+# sudo user
+username = "someuser"
+# Ansible Variables
+ANSIBLE_DEBUG = "0"
+# Remote Variables
+hostname = "0x7e4"
+DOMAIN = "example.org"
+# remote working directory
+WORKDIR = "/opt/docker"

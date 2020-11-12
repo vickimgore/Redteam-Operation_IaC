@@ -1,0 +1,29 @@
+---
+- name: Include sslh_config vars
+  include_vars:
+    file: main.yml
+
+- name: Copy template
+  become: yes
+  template:
+    src: sslh.cfg.j2
+    dest: "{{ sslh_config }}"
+    owner:  root
+    group:  root
+    mode: 0600
+
+- name: Install sslh packages
+  become: yes
+  yum:
+    name:
+      - sslh
+      - libconfig
+      - libconfig-devel
+    state: present
+
+- name: Restart sslh
+  become: yes
+  systemd:
+    enabled: yes
+    state: started
+    name: sslh

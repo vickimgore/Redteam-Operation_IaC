@@ -1,0 +1,6 @@
+---
+- name: sslh_config
+  hosts: cc
+  tasks:
+    - import_role:
+        name: sslh

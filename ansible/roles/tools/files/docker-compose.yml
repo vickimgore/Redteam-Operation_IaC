@@ -1,0 +1,12 @@
+
+version: '3'
+services:
+
+  spiderfoor:
+    image: vickimgore/spiderfoot:latest
+    hostname: spiderfoot
+    container_name: spiderfoot
+    ports:
+    - '127.0.0.1:5001:5001'
+    volumes:
+    - /opt/docker/spiderfoot:/var/lib/spiderfoot

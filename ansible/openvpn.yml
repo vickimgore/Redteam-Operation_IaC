@@ -1,0 +1,6 @@
+---
+- name: Openvpn setup
+  hosts: cc
+  tasks:
+    - import_role:
+        name: openvpn

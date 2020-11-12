@@ -1,0 +1,45 @@
+ListenAddress 127.0.0.1:22
+ListenAddress {{ ansible_host }}:8443
+Port 22
+AddressFamily inet
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_ecdsa_key
+HostKey /etc/ssh/ssh_host_ed25519_key
+SyslogFacility AUTHPRIV
+LogLevel INFO
+LoginGraceTime 3m
+PermitRootLogin no
+StrictModes yes
+MaxAuthTries 3
+MaxSessions 5
+PubkeyAuthentication yes
+AuthorizedKeysFile	.ssh/authorized_keys
+HostbasedAuthentication no
+IgnoreUserKnownHosts no
+IgnoreRhosts yes
+PasswordAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+KerberosAuthentication no
+GSSAPIAuthentication no
+UsePAM yes
+AllowAgentForwarding yes
+AllowTcpForwarding yes
+GatewayPorts yes
+X11Forwarding no
+PrintMotd no
+PrintLastLog no
+TCPKeepAlive yes
+UsePrivilegeSeparation sandbox
+PermitUserEnvironment no
+Compression yes
+ShowPatchLevel no
+UseDNS no
+PermitTunnel yes
+VersionAddendum none
+Banner none
+AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
+AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
+AcceptEnv LC_IDENTIFICATION LC_ALL LANGUAGE
+AcceptEnv XMODIFIERS
+Subsystem	sftp	/usr/libexec/openssh/sftp-server

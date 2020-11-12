@@ -1,0 +1,6 @@
+---
+- name: sshd_config
+  hosts: cc
+  tasks:
+    - import_role:
+        name: sshd_config

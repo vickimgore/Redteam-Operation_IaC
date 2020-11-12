@@ -1,0 +1,103 @@
+- name: Install epel
+  become: yes
+  yum:
+    name:
+      - epel-release
+
+- name: Install pip
+  become: yes
+  yum:
+    name:
+      - python-pip
+    state: latest
+
+- name: Install base packages
+  become: yes
+  yum:
+    name:
+      - curl
+      - vim
+      - screen
+      - git
+      - bind-utils
+      - fail2ban-firewalld
+      - fail2ban-sendmail
+      - fail2ban
+      - fail2ban-server
+      - tcpdump
+      - net-tools
+      - bash-completion
+      - bash-completion-extras
+      - dos2unix
+    state: present
+
+- name: upgrade all packages
+  become: yes
+  yum:
+    name: '*'
+    state: latest
+
+- name: Install ansible docker dependencies
+  become: yes
+  pip:
+    name:
+      - docker
+      - pip
+    state: present
+
+- name: Set timezone
+  become: yes
+  shell: |
+    timedatectl set-timezone America/Santiago
+
+- name: Docker Workspace
+  become: yes
+  file:
+    path: "{{ workdir }}"
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: '0755'
+
+- name: Create a dump directory
+  become: yes
+  file:
+    path: "{{ workdir }}/dump"
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: '0755'
+
+- name: Selinux permissive
+  become: yes
+  selinux:
+    policy: targeted
+    state: permissive
+
+- name: FW
+  become: yes
+  systemd:
+    enabled: yes
+    state: started
+    name: firewalld
+
+- name: Add 443/tcp
+  become: yes
+  firewalld:
+    port: 443/tcp
+    permanent: true
+    state: enabled
+
+- name: Add 8443/tcp
+  become: yes
+  firewalld:
+    port: 8443/tcp
+    permanent: true
+    state: enabled
+
+- name: FW
+  become: yes
+  systemd:
+    enabled: yes
+    state: reloaded
+    name: firewalld

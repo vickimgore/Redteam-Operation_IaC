@@ -1,0 +1,6 @@
+---
+- name: Linode Docker
+  hosts: cc
+  tasks:
+    - import_role:
+        name: docker

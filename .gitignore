@@ -1,0 +1,6 @@
+.terraform/
+secrets.tfvar
+terraform.tfvar
+stagging/*
+terraform.tfstate
+terraform.tfstate.backup

@@ -1,0 +1,6 @@
+---
+- name: Tools
+  hosts: cc
+  tasks:
+    - import_role:
+        name: tools

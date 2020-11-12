@@ -1,0 +1,7 @@
+---
+  - import_playbook: docker.yml
+  - import_playbook: base_setup.yml
+  - import_playbook: sslh_config.yml
+  - import_playbook: sshd_config.yml
+  - import_playbook: tools.yml
+  #- import_playbook: openvpn.yml

@@ -1,0 +1,3 @@
+[submodule "ansible/plugins/mitogen-master"]
+	path = ansible/plugins/mitogen-master
+	url = https://github.com/dw/mitogen
