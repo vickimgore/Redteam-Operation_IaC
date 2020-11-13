@@ -1,6 +1,7 @@
 - name: Pull koadic
+  become: yes
   docker_image:
-    name: koadic
+    name: vickimgore/koadic
     repository: vickimgore/koadic
     source: pull
 
