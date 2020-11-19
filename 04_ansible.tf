@@ -4,7 +4,7 @@ resource "null_resource" "setup" {
     host = linode_instance.c2.ip_address
     type = "ssh"
     user = var.username
-    timeout = "120s"
+    timeout = "240s"
     agent = false
     private_key = chomp(file("~/.ssh/id_rsa"))
   }
