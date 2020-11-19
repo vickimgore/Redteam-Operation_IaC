@@ -18,6 +18,8 @@ groups $USERNAME | grep -q sudo || usermod -a -G sudo $USERNAME
 chown -R $USERNAME:$USERNAME /home/$USERNAME/.ssh
 chmod 700 /home/$USERNAME/.ssh
 chmod 600 /home/$USERNAME/.ssh/authorized_keys
+sed -i 's/^#UseDNS yes/UseDNS no/g' /etc/ssh/sshd_config
+systemctl restart sshd
 EOF
   images = [ var.image ]
   rev_note = "initial version"
