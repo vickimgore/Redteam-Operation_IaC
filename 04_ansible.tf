@@ -24,12 +24,11 @@ resource "null_resource" "copyfiles" {
       SSH_PRIVKEY = "~/.ssh/id_rsa"
       HOST_IP = linode_instance.c2.ip_address
       WORKDIR = var.WORKDIR
-      HOSTNAME = var.hostname
     }
   }
 
   provisioner "local-exec" {
-    command = "ansible-playbook -i ./stagging/ansible-inventory ./ansible/cc.yml"
+    command = "./bin/python3.8 ./bin/ansible-playbook -i ./stagging/ansible-inventory ./ansible/cc.yml"
 
     environment = {
       ANSIBLE_DEBUG             = var.ANSIBLE_DEBUG
