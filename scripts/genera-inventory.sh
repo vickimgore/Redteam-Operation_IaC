@@ -10,6 +10,5 @@ all:
   children:
     cc:
       hosts:
-        $HOSTNAME:
-          ansible_host: $HOST_IP
+        $HOST_IP
 EOF
