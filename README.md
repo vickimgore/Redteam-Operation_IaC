@@ -1,6 +1,22 @@
 # Redteam Operation Infrastucture as a Code
 
+**No me responsabilizo por el mal uso que se le valla a dar al codigo expuesto en este repositorio, el codigo a sido expuesto para fines educativos y para ser usado en ambientes controlados previo acuerdo con todas las partes.**
+
 ## Descripción
+
+Este proyecto busca automatizar gran parte de las tareas repetitivas en el proceso de pentest y/o redteam, desde levantar una infraestructura que permitira manipular redes internas e internas. Principalmente saltar protecciones actuales de firewalls y equipos de seguridad.
+
+Componentes:
+
+* El acceso es por medio de sslh (multiplexador ssh + ssl), exponiendo el puerto 443 (ssl) sera redirigido internamente a ssh, ssl o vpn utilizando expresiones regulares. [Mas información sobre sslh](https://github.com/yrutschle/sslh)
+* Exposición del puerto 8443 para ssh.
+* Contenedor spiderfoot, permite realizar enumeración de diferentes servicios. Este contenedor por defecto queda funcionando en localhost puerto 5001, para acceder a el lo puedes hacer con ssh =) [Mas información](https://github.com/smicallef/spiderfoot)
+* Contenedor koadic, C3 COM Command & Control. [Mas información](https://github.com/zerosum0x0/koadic)
+* Openvpn, estamos trabajando para usted...
+
+Diagrama general de la infraestructura
+
+![](img/c2_4.png)
 
 ## Prerequisitos
 
@@ -97,7 +113,8 @@ terraform destroy -var-file=terraform.tfvar -var-file=secrets.tfvar
 
 ## Charlas
 
-[Pwning networks on 10 min or less - Hackeemting Yacuiba 2020 - ES](https://youtu.be/lqSWOakmnqA?t=5384)
+- [Pwning networks on 10 min or less - Hackeemting Yacuiba 2020 - ES](https://youtu.be/lqSWOakmnqA?t=5384)
+- [Presentación](https://docs.google.com/presentation/d/1LWUz2h1QDtIptn0WYXXGIxwJWPEEDZjh4UwF-D7r_7o/edit#slide=id.g1f87997393_0_782)
 
 ## TODO
 
@@ -108,6 +125,8 @@ terraform destroy -var-file=terraform.tfvar -var-file=secrets.tfvar
 - [x] Mejorar tiempos de despliegue
 - [ ] Incorporar role para openvpn
 - [ ] Agregar reglas custom post despliegue
+- [ ] Crear wiki de proyecto
+- [ ] Crear imagen docker para este proyecto con respectivo docker-compose.
 
 ## Futuro
 
