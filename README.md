@@ -27,6 +27,13 @@ source bin/activate
 pip install -r requirements.txt
 ```
 
+### Iniciar submodulo mitogen
+
+```bash
+git submodule init
+git submodule update
+```
+
 ### Copiar el ejemplo terraform.tfvar
 
 ```bash
@@ -88,7 +95,6 @@ terraform apply -var-file=terraform.tfvar -var-file=secrets.tfvar
 terraform destroy -var-file=terraform.tfvar -var-file=secrets.tfvar
 ```
 
-
 ## Charlas
 
 [Pwning networks on 10 min or less - Hackeemting Yacuiba 2020 - ES](https://youtu.be/lqSWOakmnqA?t=5384)
@@ -102,3 +108,9 @@ terraform destroy -var-file=terraform.tfvar -var-file=secrets.tfvar
 - [x] Mejorar tiempos de despliegue
 - [ ] Incorporar role para openvpn
 - [ ] Agregar reglas custom post despliegue
+
+## Futuro
+
+- [ ] Agregar control desde discord
+- [ ] Incorporar otros C&C
+- [ ] Incorporar comunicacion SSL para C&C
